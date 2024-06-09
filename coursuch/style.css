@@ -1,0 +1,160 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+html
+{
+    padding: 5px;
+}
+
+.logo
+{
+    margin-left: 250px;
+    margin-bottom: 10px;
+    margin-right: 250px;
+}
+.menu
+{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 250px;
+}
+.menu li a
+{
+    font-style: bold;
+    font-size: 16px;
+    margin-top: 48px;
+    text-decoration: none;
+    padding: 15px;
+}
+
+.title
+{
+    background-image: url(images/fon.jpg);
+    background-position: cover;
+    background-repeat: no-repeat;
+}
+.title-text
+{
+    text-align: center;
+}
+.title-logo
+{
+    padding: 175px 0px; 
+}
+.title-logo h1
+{
+    margin-bottom: 15px;
+    font-size: 36px;
+}
+.title-logo p
+{
+    font-size: 18px;
+}
+.numbers
+{
+    margin-left: 250px;
+    margin-top: 50px;
+    font-size: 24px;
+}
+.number-row
+{
+    justify-content: center;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+}
+.number-container
+{
+    text-align: center;
+    font-size: 18px;
+    margin-right: 75px;
+}
+.number-container strong
+{
+    font-size: 36px;
+}
+.partners
+{
+    margin-top: 50px;
+}
+.partners p
+{
+    margin-left: 250px;
+    font-size: 24px;
+}
+.partners-container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.partner-card
+{
+    text-align: center;
+    width: 358px;
+    height: 371px;
+}
+.partner-card img
+{
+    width: 191px;
+    height: 150px;
+    margin-top: 70px;
+}
+.text
+{
+    font-size: 18px;
+    margin-top: 15px;
+}
+.site-footer
+{
+    text-align: center;
+    column-span: all;
+}
+.footer-about-container {
+    font-size: 18px;
+    margin-left: 250px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .column {
+    flex: 1;
+  }
+  .footer-links-container {
+    font-size: 24px;
+    margin-right: 200px;
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+  .reservation-info {
+    text-align: left;
+    font-size: 18px;
+    margin: 0 auto;
+    margin-left: 250px;
+    margin-right: 250px;
+    width: fit-content;
+}
+    input[type='text'],
+    button {
+        margin-left: 250px;
+    }
+    .user-info {
+        text-align: left;
+        font-size: 18px;
+        margin-left: 250px;
+    }
+    .update-film-form-container{
+        text-align: left;
+        font-size: 18px;
+        margin-left: 250px;
+    }
