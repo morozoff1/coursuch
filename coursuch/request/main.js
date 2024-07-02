@@ -1,10 +1,10 @@
-$(window).on('load', function() {
+$(window).on('load', function () {
     // Загружаем данные с сервера
     $.ajax({
         url: 'http://coursuch/entity/readbooks.php',
         method: 'get',
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
             let i = 0;
             $('main').append(`<button class='create'>Создать</button><div class='all-users'></div> `);
             response.forEach(books => {
@@ -15,11 +15,26 @@ $(window).on('load', function() {
                     Автор: ${books.author}<br>
                     Дата выхода: ${books.date}<br>
                     Описание: ${books.description}<br>
+                    <button class='ren' id='rent${i}'>Забронировать</button><br>
                     <button class='red' id='update${i}'>Редактировать</button><br>
                     <button class='del' id='delete${i}'>Удалить</button><br> 
                 `);
+                $(`#rent${i}`).on('click', function () {
 
-                $(`#delete${i}`).on('click', function() {
+                    event.preventDefault(); 
+                    let dataform = $(this).serialize();
+                    $.ajax({
+                        url: 'http://coursuch/entity/createrent.php',
+                        method: 'post',
+                        dataType: 'json',
+                        data: dataform,
+                        success: function (message) {
+                            alert(message.message);
+                            location.reload(true);
+                        }
+                    });
+                })
+                $(`#delete${i}`).on('click', function () {
                     $.ajax({
                         url: 'http://coursuch/entity/deletebooks.php',
                         method: 'post',
@@ -27,14 +42,14 @@ $(window).on('load', function() {
                         data: {
                             'id': books.id
                         },
-                        success: function(message) {
+                        success: function (message) {
                             alert(message.message);
                             location.reload(true);
                         }
                     });
                 });
 
-                $('.create').on('click', function() {
+                $('.create').on('click', function () {
                     $('main').empty();
                     $('main').append(`<div class='update-form'>
                                         <form id='create'>
@@ -52,19 +67,19 @@ $(window).on('load', function() {
                                             </div>
                                         </form>
                                     </div>`);
-                    $('.back').on('click', function() {
+                    $('.back').on('click', function () {
                         location.reload(true);
                     });
-                    $('#create').on('submit', function(event) {
+                    $('#create').on('submit', function (event) {
                         event.preventDefault();
                         let dataform = $(this).serialize();
-            
+
                         $.ajax({
                             url: 'http://coursuch/entity/createbooks.php',
                             method: 'post',
                             dataType: 'json',
                             data: dataform,
-                            success: function(message) {
+                            success: function (message) {
                                 alert(message.message);
                                 location.reload(true);
                             }
@@ -72,7 +87,7 @@ $(window).on('load', function() {
                     });
                 });
 
-                $(`#update${i}`).on('click', function() {
+                $(`#update${i}`).on('click', function () {
                     $('main').empty();
                     $('main').append(`<div class='update-form'>
                                         <form id='update-film-form'>
@@ -91,10 +106,10 @@ $(window).on('load', function() {
                                             </div>
                                         </form>
                                     </div>`);
-                    $('.back').on('click', function() {
+                    $('.back').on('click', function () {
                         location.reload(true)
                     });
-                    $('#update-film-form').on('submit', function(event) {
+                    $('#update-film-form').on('submit', function (event) {
                         event.preventDefault();
                         let dataform = $(this).serialize();
 
@@ -103,7 +118,7 @@ $(window).on('load', function() {
                             method: 'post',
                             dataType: 'json',
                             data: dataform,
-                            success: function(message) {
+                            success: function (message) {
                                 alert(message.message);
                                 location.reload(true);
                             }
